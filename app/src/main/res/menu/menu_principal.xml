@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_treinos"
+        android:title="@string/tbl_treino" />
+    <item
+        android:id="@+id/action_evolucao"
+        android:title="@string/tbl_evolution" />
+    <item
+        android:id="@+id/action_exemplos"
+        android:title="@string/tbl_exemplos" />
+    <item
+        android:id="@+id/action_Perfil"
+        android:title="@string/tbl_perfil" />
+</menu>

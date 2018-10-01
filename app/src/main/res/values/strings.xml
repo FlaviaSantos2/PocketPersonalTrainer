@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name" translatable="false">Pocket Personal Trainer</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="TxtView_cad">Cadastrar</string>
+    <string name="txt_email">Email</string>
+    <string name="txt_passwd">Senha</string>
+    <string name="tbl_treino">Treino</string>
+    <string name="tbl_evolution">Evolução</string>
+    <string name="tbl_exemplos">Exemplos</string>
+    <string name="tbl_perfil">Perfil</string>
+    <string name="TxtView_redfPwd">Redefinir Senha</string>
+    <string name="txt_peso">Peso</string>
+    <string name="txt_altura">Altura</string>
+
+</resources>
