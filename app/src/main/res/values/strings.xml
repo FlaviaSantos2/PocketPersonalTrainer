@@ -11,5 +11,7 @@
     <string name="TxtView_redfPwd">Redefinir Senha</string>
     <string name="txt_peso">Peso</string>
     <string name="txt_altura">Altura</string>
+    <string name="txt_autNomeGyn">Nome da Academia</string>
+
 
 </resources>
