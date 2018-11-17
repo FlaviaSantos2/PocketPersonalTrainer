@@ -14,4 +14,8 @@
     <string name="txt_autNomeGyn">Nome da Academia</string>
 
 
+    <string name="facebook_app_id">2230507343902033</string>
+    <string name="fb_login_protocol_scheme">fb2230507343902033</string>
+
+
 </resources>
