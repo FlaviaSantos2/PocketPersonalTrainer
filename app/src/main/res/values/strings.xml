@@ -1,21 +1,39 @@
 <resources>
     <string name="app_name" translatable="false">Pocket Personal Trainer</string>
-    <string name="btn_entrar">Entrar</string>
-    <string name="TxtView_cad">Cadastrar</string>
-    <string name="txt_email">Email</string>
-    <string name="txt_passwd">Senha</string>
-    <string name="tbl_treino">Treino</string>
-    <string name="tbl_evolution">Evolução</string>
-    <string name="tbl_exemplos">Exemplos</string>
-    <string name="tbl_perfil">Perfil</string>
-    <string name="TxtView_redfPwd">Redefinir Senha</string>
-    <string name="txt_peso">Peso</string>
-    <string name="txt_altura">Altura</string>
-    <string name="txt_autNomeGyn">Nome da Academia</string>
-
+    <string name="btn_entrar" translatable="true">Entrar</string>
+    <string name="TxtView_cad" translatable="true">Cadastrar</string>
+    <string name="txt_email" translatable="false">E-mail</string>
+    <string name="txt_passwd" translatable="true">Senha</string>
+    <string name="tbl_treino" translatable="true">Treino</string>
+    <string name="tbl_evolution" translatable="true">Evolução</string>
+    <string name="tbl_exemplos" translatable="true">Exemplos</string>
+    <string name="tbl_perfil" translatable="true">Perfil</string>
+    <string name="TxtView_redfPwd" translatable="true">Redefinir Senha</string>
+    <string name="txt_peso" translatable="true">Peso</string>
+    <string name="txt_altura" translatable="true">Altura</string>
+    <string name="txt_autNomeGyn" translatable="true">Nome da Academia</string>
+    <string name="lbl_photoPerfil">Foto de perfil</string>
+    <string name="txt_fullName">Nome Completo</string>
+    <string name="txt_confPasswd">Confirmar Senha</string>
+    <string name="lbl_passwdNotValid">Senha invalida</string>
+    <string name="lbl_passwdValid">Senha valida</string>
+    <string name="storage_permission_rationale_title">Storage permission required</string>
+    <string name="storage_permition_rationale_message">In order to take a picture, you must grant this permission!</string>
+    <string name="storage_permission_denied_message">Storage permission is required in order to take a photo with the camera</string>
 
     <string name="facebook_app_id">2230507343902033</string>
     <string name="fb_login_protocol_scheme">fb2230507343902033</string>
+
+    <string name="picture">Picture</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="intro_message">
+        <![CDATA[
+            This sample demonstrates the basic use of Camera2 API. Check the source code to see how
+            you can display camera preview and take pictures.
+        ]]>
+    </string>
 
 
 </resources>

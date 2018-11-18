@@ -10,7 +10,7 @@ import android.view.View
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
-import com.facebook.login.LoginManager
+import com.facebook.login.LoginManager.*
 import com.facebook.login.LoginResult
 import java.util.*
 
@@ -21,20 +21,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         //login
-        var btnEntrar = findViewById<Button>(R.id.btnEntrar)
+        val btnEntrar = findViewById<Button>(R.id.btnEntrar)
         btnEntrar.setOnClickListener {
 
         }
         //Chama tela de cadastro
-        var lblCadastrar = findViewById<TextView>(R.id.TxTViewCafastro)
+        val lblCadastrar = findViewById<TextView>(R.id.TxTViewCafastro)
         lblCadastrar.setOnClickListener {
             val intent = Intent(this, CadastrarActivity::class.java)
             startActivity(intent)
         }
         //Login pelo Facebook
-        var btnLoginFacebook = findViewById<Button>(R.id.btnFacebookLogin)
+        val btnLoginFacebook = findViewById<Button>(R.id.btnFacebookLogin)
         btnLoginFacebook.setOnClickListener {
             facebookLogin()
         }
@@ -47,8 +46,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun facebookLogin() {
         callbackManager = CallbackManager.Factory.create()
-        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("name", "email", "picture"))
-        LoginManager.getInstance().registerCallback(callbackManager,
+        getInstance().logInWithReadPermissions(this, Arrays.asList("name", "email", "picture"))
+        getInstance().registerCallback(callbackManager,
                 object : FacebookCallback<LoginResult> {
                     override fun onSuccess(loginResult: LoginResult) {
 

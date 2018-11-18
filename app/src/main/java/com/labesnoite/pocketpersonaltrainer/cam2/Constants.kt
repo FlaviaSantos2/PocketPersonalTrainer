@@ -1,0 +1,8 @@
+@file:JvmName("Constants")
+
+package com.labesnoite.pocketpersonaltrainer.cam2
+
+@JvmField
+val REQUEST_CAMERA_PERMISSION = 1
+@JvmField
+val PIC_FILE_NAME = "pic.jpg"
