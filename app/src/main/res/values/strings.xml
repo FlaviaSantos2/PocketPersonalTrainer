@@ -26,8 +26,18 @@
 
     <string name="picture">Picture</string>
     <string name="description_info">Info</string>
-    <string name="request_permission">This sample needs camera permission.</string>
-    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="request_permission">Este app precisa da permissão de camera.</string>
+    <string name="camera_button">Botão de capitura</string>
+    <string name="thumbnail_button">Mostrar imagens</string>
+    <string name="drawer_open">Open Navigation Drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="camera_switch">rotateCamera</string>
+    <string name="preview">Camera Preview</string>
+    <string name="video">Video</string>
+    <string name="foto">Foto</string>
+    <string name="edtTelefone">Telefone</string>
+
+
     <string name="intro_message">
         <![CDATA[
             This sample demonstrates the basic use of Camera2 API. Check the source code to see how

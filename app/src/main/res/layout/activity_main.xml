@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
     <TextView
-        android:id="@+id/TxTViewCafastro"
+        android:id="@+id/txtViewCadastrar"
         android:layout_width="86dp"
         android:layout_height="0dp"
         android:layout_marginStart="81dp"
@@ -136,7 +136,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TxTViewCafastro" />
+        app:layout_constraintTop_toBottomOf="@+id/txtViewCadastrar" />
 
     <ImageView
         android:id="@+id/imageView2"
