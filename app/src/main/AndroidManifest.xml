@@ -12,16 +12,6 @@
     <uses-feature android:name="android.hardware.camera2.autofocus" />
     <uses-feature android:name="android.hardware.camera2.front" />
 
-    <
-    <
-    <
-    <
-    <
-    <
-    < HEAD
-    =======
-
-    >>>>>>> PocketPersonalTrainer App
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -38,16 +28,6 @@
             android:name="android.support.FILE_PROVIDER_PATHS"
             android:resource="@xml/file_paths" />
 
-        <
-        <
-        <
-        <
-        <
-        <
-        < HEAD
-        =======
-
-        >>>>>>> PocketPersonalTrainer App
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -65,21 +45,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.labesnoite.pocketpersonaltrainer.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastrarActivity">
+        <activity android:name="com.labesnoite.pocketpersonaltrainer.CadastrarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuPrincipalActivity">
+        <activity android:name="com.labesnoite.pocketpersonaltrainer.MenuPrincipalActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

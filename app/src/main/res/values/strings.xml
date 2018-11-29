@@ -28,6 +28,8 @@
     <string name="picture">Tirar Fotos</string>
     <string name="description_info">Info</string>
     <string name="request_permission">Este app precisa da permissão de camera.</string>
+    <string name="drawer_open">Open Navigation Drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
     <string name="camera_button">Botão de capitura</string>
     <string name="thumbnail_button">Mostrar imagens</string>
     <string name="camera_switch">rotateCamera</string>

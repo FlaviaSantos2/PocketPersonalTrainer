@@ -5,15 +5,10 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.hardware.camera2.*
 import android.media.MediaRecorder
-
-<<<<<<< HEAD
-import android.os.*
-=======
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
 import android.os.SystemClock
->>>>>>> PocketPersonalTrainer App
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.util.SparseIntArray

@@ -2,28 +2,16 @@ package com.labesnoite.pocketpersonaltrainer
 
 import android.content.res.Configuration
 import android.hardware.camera2.CameraCharacteristics
-
-<<<<<<< HEAD
-import android.support.v7.app.AppCompatActivity
-=======
->>>>>>> PocketPersonalTrainer App
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
-<<<<<<< HEAD
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import com.labesnoite.pocketpersonaltrainer.cameraApp.*
-=======
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.labesnoite.pocketpersonaltrainer.cameraApp.PreviewFragment
->>>>>>> PocketPersonalTrainer App
 import kotlinx.android.synthetic.main.activity_camera.*
 
 class CameraActivity : AppCompatActivity(), DrawerLayout.DrawerListener {
@@ -79,11 +67,12 @@ class CameraActivity : AppCompatActivity(), DrawerLayout.DrawerListener {
         when (item.itemId) {
             R.id.switchCameraId -> {
                 fragment = supportFragmentManager.findFragmentByTag(PREVIEW_FRAGMENT_TAG)
-                if (fragment is PreviewFragment)
+                if (fragment is PreviewFragment) {
                     item.icon = if (fragment.toggleCameraFacing() == CameraCharacteristics.LENS_FACING_BACK)
                         getDrawable(R.drawable.ic_camera_front)
                     else
                         getDrawable(R.drawable.ic_camera_rear)
+                }
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)

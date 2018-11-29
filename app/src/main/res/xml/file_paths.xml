@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD<paths>
-=======
 <paths>
-    >>>>>>> PocketPersonalTrainer App
     <external-path
         name="my_images"
         path="Android/data/com.labesnoite.pocket.personaltrainer/files/Pictures" />
