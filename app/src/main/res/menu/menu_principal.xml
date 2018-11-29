@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/action_treinos"
-        android:title="@string/tbl_treino" />
+        android:id="@+id/action_add_treinos"
+        android:icon="@drawable/ic_treino_barbell"
+        android:title="@string/menu_treino" />
     <item
-        android:id="@+id/action_evolucao"
-        android:title="@string/tbl_evolution" />
-    <item
-        android:id="@+id/action_exemplos"
-        android:title="@string/tbl_exemplos" />
-    <item
-        android:id="@+id/action_Perfil"
-        android:title="@string/tbl_perfil" />
+        android:id="@+id/action_camera"
+        android:icon="@drawable/ic_camera_front"
+        android:title="@string/picture" />
 </menu>
