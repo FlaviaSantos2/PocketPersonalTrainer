@@ -5,29 +5,28 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
+import com.facebook.*
 import com.facebook.login.LoginManager.getInstance
 import com.facebook.login.LoginResult
-import com.labesnoite.pocketpersonaltrainer.config.RetrofitInitializer
+//import com.labesnoite.pocketpersonaltrainer.config.RetrofitInitializer
 import com.labesnoite.pocketpersonaltrainer.entidade.Usuario
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+//import retrofit2.Call
+//import retrofit2.Callback
+//import retrofit2.Response
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private var callbackManager: CallbackManager? = null
+    private var profileTracker: ProfileTracker? = null
     private var user: Usuario = Usuario()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val call = RetrofitInitializer().userService().loginApp(edtEmail.text.toString(), edT_passWd.text.toString())
+        /*val call = RetrofitInitializer().userService().loginApp(edtEmail.text.toString(), edT_passWd.text.toString())
         call.enqueue(object : Callback<Usuario?> {
             override fun onResponse(call: Call<Usuario?>?, response: Response<Usuario?>?) {
                 response?.body()?.let {
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(call: Call<Usuario?>?, t: Throwable?) {
                 Log.e("Falha no login", t?.message)
             }
-        })
+        })*/
 
         //login
         btnEntrar.setOnClickListener {
@@ -72,15 +71,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun facebookLogin() {
         callbackManager = CallbackManager.Factory.create()
-        getInstance().logInWithReadPermissions(this, Arrays.asList("name", "email", "user_picture"))
+        getInstance().logInWithReadPermissions(this, Arrays.asList("name", "email", "picture"))
         getInstance().registerCallback(callbackManager,
                 object : FacebookCallback<LoginResult> {
                     override fun onSuccess(loginResult: LoginResult) {
-
+                        val profile = Profile.getCurrentProfile()
+                        val intent = Intent(this@MainActivity, CadastrarActivity::class.java)
                         Log.d("MainActivity", "Facebook token: " + loginResult.accessToken.token)
                         Log.d("MainActivity", "Get from Facebook: " + loginResult.recentlyGrantedPermissions)
-                        //val it = Intent(applicationContext, FacebookAuthenticatedActivity::class.java)
-                        //startActivity(it)
+                        intent.putExtra("PerfilFb", profile)
+                        startActivity(intent)
                     }
 
                     override fun onCancel() {
@@ -95,13 +95,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loginValidate(): Boolean {
-        val isValidate: Boolean
-        if (edtEmail.text.isBlank() || edT_passWd.text.isBlank())
-            isValidate = false
-        else
-            isValidate = true
-
-
-        return isValidate
+        if (edtEmail.text.isNotEmpty() || edT_passWd.text.isNotEmpty()) {
+            return true
+        }
+        return false
     }
 }

@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.facebook.Profile
 import com.labesnoite.pocketpersonaltrainer.entidade.Usuario
 import kotlinx.android.synthetic.main.activity_cadastrar.*
 import java.util.*
@@ -15,6 +16,12 @@ class CadastrarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrar)
 
+        if (intent.extras != null) {
+            val profile = intent.extras.get("PerfilFb") as Profile
+            fotoPerfil.setImageURI(profile.getProfilePictureUri(fotoPerfil.width, fotoPerfil.height))
+            edtNome.text.insert(0, profile.name)
+        }
+
         btnCadastrar.setOnClickListener {
             if (salvarDados()) {
                 AlertDialog.Builder(this@CadastrarActivity)
@@ -22,15 +29,16 @@ class CadastrarActivity : AppCompatActivity() {
                         .setPositiveButton(android.R.string.ok, null)
                         .show()
                 val intent = Intent(this, MenuPrincipalActivity::class.java)
+                intent.putExtra("Usuario", user)
                 startActivity(intent)
             }
         }
 
-        fabtnTirarFoto.setOnClickListener {
+        //fabtnTirarFoto.setOnClickListener {
             //val intent = Intent(this, CameraActivity::class.java)
             //startActivity(intent)
 
-        }
+        //}
     }
 
     private lateinit var user: Usuario

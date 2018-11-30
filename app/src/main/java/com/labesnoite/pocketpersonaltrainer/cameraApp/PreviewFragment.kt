@@ -20,7 +20,8 @@ import pub.devrel.easypermissions.EasyPermissions
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
+
+//import kotlin.collections.ArrayList
 
 class PreviewFragment : Fragment() {
 
@@ -69,7 +70,7 @@ class PreviewFragment : Fragment() {
     private val surfaceListener = object : SurfaceHolder.Callback {
         override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
             Log.d(TAG, "surface changed")
-            if (holder != null) {
+            if (holder.equals(null)) {
                 closeCamera()
                 surfaceHolder = holder
                 surfaceHolder.setFixedSize(MAX_PREVIEW_WIDTH, MAX_PREVIEW_HEIGHT)
@@ -237,10 +238,10 @@ class PreviewFragment : Fragment() {
         captureRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_RECORD)
         captureRequestBuilder.addTarget(holderSurface)
         captureRequestBuilder.addTarget(recordSurface)
-        val surfaces = ArrayList<Surface>().apply {
-            add(holderSurface)
-            add(recordSurface)
-        }
+        //val surfaces = ArrayList<Surface>().apply {
+        //  add(holderSurface)
+        //add(recordSurface)
+        //}
     }
 
     private fun startRecordSession() {

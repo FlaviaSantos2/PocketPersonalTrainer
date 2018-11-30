@@ -63,7 +63,7 @@ class CameraActivity : AppCompatActivity(), DrawerLayout.DrawerListener {
     }
 
     private fun selectDrawerItem(item: MenuItem) {
-        var fragment: Fragment? = null
+        var fragment: Fragment?
         when (item.itemId) {
             R.id.switchCameraId -> {
                 fragment = supportFragmentManager.findFragmentByTag(PREVIEW_FRAGMENT_TAG)

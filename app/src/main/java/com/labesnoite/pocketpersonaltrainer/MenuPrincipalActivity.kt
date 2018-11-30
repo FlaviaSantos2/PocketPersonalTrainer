@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.labesnoite.pocketpersonaltrainer.entidade.Usuario
 import com.labesnoite.pocketpersonaltrainer.menuPrincipalFragments.PageAdapter
+import com.labesnoite.pocketpersonaltrainer.menuPrincipalFragments.PerfilUsuario
 import kotlinx.android.synthetic.main.activity_principal.*
 
 class MenuPrincipalActivity : AppCompatActivity() {
@@ -21,12 +22,11 @@ class MenuPrincipalActivity : AppCompatActivity() {
                 setContentView(R.layout.activity_principal)
 
                 val pageAdapter = PageAdapter(supportFragmentManager)
-
-                //user = intent.extras.getSerializable("Usuario") as Usuario
-                // PerfilUsuario().setUsuarioNoFragment(user)
-
                 mainLayout.adapter = pageAdapter
                 tabsMenu.setupWithViewPager(mainLayout)
+
+                user = intent.extras.get("Usuario") as Usuario
+                PerfilUsuario().setUsuarioNoFragment(user)
             }
         }
     }
