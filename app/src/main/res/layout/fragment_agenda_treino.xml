@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/AgendarTreino">
+
+    <Button
+        android:id="@+id/btnAgendar"
+        android:layout_width="311dp"
+        android:layout_height="69dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTintMode="src_over"
+        android:text="Agendar"
+        android:textColor="@color/colorSecundary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edtSeries"
+        android:layout_width="173dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="40dp"
+        android:ems="10"
+        android:hint="Séries"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/edtPesoUsado"
+        app:layout_constraintEnd_toStartOf="@+id/edtRepeticoes"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selecionarTreino"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edtPesoUsado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="99dp"
+        android:ems="10"
+        android:hint="@string/txt_peso"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/btnAgendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtSeries" />
+
+    <Spinner
+        android:id="@+id/selecionarTreino"
+        android:layout_width="356dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:tag="Selecionar Treino"
+        app:layout_constraintBottom_toTopOf="@+id/edtSeries"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtDataHj" />
+
+    <EditText
+        android:id="@+id/edtDataHj"
+        android:layout_width="352dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Data de hj"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtRepeticoes"
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="40dp"
+        android:ems="10"
+        android:hint="Repetições"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/edtPesoUsado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edtSeries"
+        app:layout_constraintTop_toBottomOf="@+id/selecionarTreino"
+        app:layout_constraintVertical_bias="0.529" />
+
+</android.support.constraint.ConstraintLayout>

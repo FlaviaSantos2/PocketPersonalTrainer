@@ -1,19 +1,18 @@
 package com.labesnoite.pocketpersonaltrainer
 
+//import com.labesnoite.pocketpersonaltrainer.config.RetrofitInitializer
+//import retrofit2.Call
+//import retrofit2.Callback
+//import retrofit2.Response
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.facebook.*
 import com.facebook.login.LoginManager.getInstance
 import com.facebook.login.LoginResult
-//import com.labesnoite.pocketpersonaltrainer.config.RetrofitInitializer
 import com.labesnoite.pocketpersonaltrainer.entidade.Usuario
 import kotlinx.android.synthetic.main.activity_main.*
-//import retrofit2.Call
-//import retrofit2.Callback
-//import retrofit2.Response
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -41,17 +40,17 @@ class MainActivity : AppCompatActivity() {
 
         //login
         btnEntrar.setOnClickListener {
-            if (loginValidate()) {
+            //if (loginValidate()) {
                 val intent = Intent(this, MenuPrincipalActivity::class.java)
                 //intent.putExtra("Usuario.id")
                 startActivity(intent)
-            } else {
-                AlertDialog.Builder(this@MainActivity)
-                        .setMessage("E-mail ou senha invalidos!")
-                        .setPositiveButton(android.R.string.ok, null)
-                        .show()
-                edtEmail.setFocusable(true)
-            }
+            //} else {
+            //  AlertDialog.Builder(this@MainActivity)
+            //        .setMessage("E-mail ou senha invalidos!")
+            //      .setPositiveButton(android.R.string.ok, null)
+            //    .show()
+            //edtEmail.setFocusable(true)
+            //}
         }
         //Chama tela de cadastro
         txtViewCadastrar.setOnClickListener {

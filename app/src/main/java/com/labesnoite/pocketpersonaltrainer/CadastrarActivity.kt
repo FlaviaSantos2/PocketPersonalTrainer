@@ -16,7 +16,7 @@ class CadastrarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrar)
 
-        if (intent.extras != null) {
+        if (intent?.extras != null) {
             val profile = intent.extras.get("PerfilFb") as Profile
             fotoPerfil.setImageURI(profile.getProfilePictureUri(fotoPerfil.width, fotoPerfil.height))
             edtNome.text.insert(0, profile.name)
