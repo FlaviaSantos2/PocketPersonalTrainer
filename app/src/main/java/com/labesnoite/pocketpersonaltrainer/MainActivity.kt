@@ -1,17 +1,13 @@
 package com.labesnoite.pocketpersonaltrainer
 
-//import com.labesnoite.pocketpersonaltrainer.config.RetrofitInitializer
-//import retrofit2.Call
-//import retrofit2.Callback
-//import retrofit2.Response
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.facebook.*
 import com.facebook.login.LoginManager.getInstance
 import com.facebook.login.LoginResult
-import com.labesnoite.pocketpersonaltrainer.entidade.Usuario
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -19,38 +15,29 @@ class MainActivity : AppCompatActivity() {
 
     private var callbackManager: CallbackManager? = null
     private var profileTracker: ProfileTracker? = null
-    private var user: Usuario = Usuario()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*val call = RetrofitInitializer().userService().loginApp(edtEmail.text.toString(), edT_passWd.text.toString())
-        call.enqueue(object : Callback<Usuario?> {
-            override fun onResponse(call: Call<Usuario?>?, response: Response<Usuario?>?) {
-                response?.body()?.let {
-                    user = it
-                }
-            }
-
-            override fun onFailure(call: Call<Usuario?>?, t: Throwable?) {
-                Log.e("Falha no login", t?.message)
-            }
-        })*/
-
         //login
         btnEntrar.setOnClickListener {
-            //if (loginValidate()) {
+            if (loginValidate()) {
+//                var user:Usuario? = getUsuarioBanco()
+                //              if(user != null){
                 val intent = Intent(this, MenuPrincipalActivity::class.java)
-                //intent.putExtra("Usuario.id")
+                val params: Bundle = Bundle()
+                //                params.putSerializable("Usuario", user)
+                //              intent.putExtra("Params", params)
                 startActivity(intent)
-            //} else {
-            //  AlertDialog.Builder(this@MainActivity)
-            //        .setMessage("E-mail ou senha invalidos!")
-            //      .setPositiveButton(android.R.string.ok, null)
-            //    .show()
-            //edtEmail.setFocusable(true)
-            //}
+                //        }
+            } else {
+                AlertDialog.Builder(this@MainActivity)
+                        .setMessage("E-mail ou senha invalidos!")
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show()
+                edtEmail.setFocusable(true)
+            }
         }
         //Chama tela de cadastro
         txtViewCadastrar.setOnClickListener {
@@ -62,6 +49,40 @@ class MainActivity : AppCompatActivity() {
             facebookLogin()
         }
     }
+
+    /*private fun checkMensalidadeStatus(usuario:Usuario?): Boolean{
+        var isOk = false
+        if(usuario != null){
+            if(usuario.getDtVencimentoMensalidade() == Date())
+                isOk = true
+        }
+        return isOk
+    }*/
+    /*private fun getUsuarioBanco(): Usuario? {
+        var user:Usuario? = Usuario()
+        /*val call = RetrofitInitializer().userService().loginApp(edtEmail.text.toString(), edT_passWd.text.toString())
+        call.enqueue(object : Callback<Usuario> {
+            override fun onResponse(call: Call<Usuario>?, response: Response<Usuario?>?) {
+                response?.body()?.let {
+                    user = it
+                    checkMensalidadeStatus(user)
+                }
+            }
+
+            override fun onFailure(call: Call<Usuario?>?, t: Throwable?) {
+                Log.e("Falha no login", t?.message)
+            }
+        })*/
+        val vall = RetrofitInitializer().userService().getUser()
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                        user = it.usuario!!
+                })
+
+        return user
+    }*/
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -75,7 +96,6 @@ class MainActivity : AppCompatActivity() {
                 object : FacebookCallback<LoginResult> {
                     override fun onSuccess(loginResult: LoginResult) {
                         val profile = Profile.getCurrentProfile()
-                        val intent = Intent(this@MainActivity, CadastrarActivity::class.java)
                         Log.d("MainActivity", "Facebook token: " + loginResult.accessToken.token)
                         Log.d("MainActivity", "Get from Facebook: " + loginResult.recentlyGrantedPermissions)
                         intent.putExtra("PerfilFb", profile)
@@ -94,7 +114,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loginValidate(): Boolean {
-        if (edtEmail.text.isNotEmpty() || edT_passWd.text.isNotEmpty()) {
+        if (edtEmail.text.toString().equals("gabrielluis_21@hotmail.com")
+                && edT_passWd.text.toString().equals("pocketpersonaltrainer")) {
             return true
         }
         return false

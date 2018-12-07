@@ -5,8 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.facebook.Profile
+import com.labesnoite.pocketpersonaltrainer.config.RetrofitInitializer
 import com.labesnoite.pocketpersonaltrainer.entidade.Usuario
 import kotlinx.android.synthetic.main.activity_cadastrar.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 
@@ -16,12 +20,6 @@ class CadastrarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrar)
 
-        if (intent?.extras != null) {
-            val profile = intent.extras.get("PerfilFb") as Profile
-            fotoPerfil.setImageURI(profile.getProfilePictureUri(fotoPerfil.width, fotoPerfil.height))
-            edtNome.text.insert(0, profile.name)
-        }
-
         btnCadastrar.setOnClickListener {
             if (salvarDados()) {
                 AlertDialog.Builder(this@CadastrarActivity)
@@ -29,19 +27,16 @@ class CadastrarActivity : AppCompatActivity() {
                         .setPositiveButton(android.R.string.ok, null)
                         .show()
                 val intent = Intent(this, MenuPrincipalActivity::class.java)
-                intent.putExtra("Usuario", user)
                 startActivity(intent)
             }
         }
 
-        //fabtnTirarFoto.setOnClickListener {
+        fabtnTirarFoto.setOnClickListener {
             //val intent = Intent(this, CameraActivity::class.java)
-            //startActivity(intent)
-
-        //}
+            //  startActivity(intent)
+        }
     }
 
-    private lateinit var user: Usuario
     private fun salvarDados(): Boolean {
         var isSaved = false
         if (edtNome.text.isBlank() || edtSenhaC.text.isBlank() ||
@@ -54,11 +49,21 @@ class CadastrarActivity : AppCompatActivity() {
             edtNome.setFocusable(true)
         } else {
             validarSenha()
-            user = Usuario(edtNome.text.toString(), edtEmailCadastro.text.toString(), edtSenhaC.text.toString(), edtPeso.text.toString().toDouble(),
+            var user: Usuario? = Usuario(edtNome.text.toString(), edtEmailCadastro.text.toString(), edtSenhaC.text.toString(), edtPeso.text.toString().toDouble(),
                     edtAltura.text.toString().toDouble(), edtTelefone.text.toString(), 0, 50.00, Date())
 
-            //codigo pra consumir a API SPRINGBOOT e salvar no Banco de dados
-            //usar Retrofit2
+            val call = RetrofitInitializer().userService().save(user).enqueue(object : Callback<Usuario> {
+                override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                    user = response.body()
+                }
+
+                override fun onFailure(call: Call<Usuario>, t: Throwable) {
+                    AlertDialog.Builder(this@CadastrarActivity)
+                            .setMessage("Erro ao cadastrar, por favor verifique sua internet")
+                            .setNegativeButton(android.R.string.ok, null)
+                            .show()
+                }
+            })
 
             isSaved = true
         }
@@ -78,6 +83,14 @@ class CadastrarActivity : AppCompatActivity() {
             isValidSenha = false
         }
         return isValidSenha
+    }
+
+    private fun getDadosPerfilFacebook(profile: Profile?): Boolean {
+        var isFaceOk = false
+        if (profile != null) {
+            isFaceOk = true
+        }
+        return isFaceOk
     }
 
     /*fun setPic(mCurrentPhotoPath :String) {

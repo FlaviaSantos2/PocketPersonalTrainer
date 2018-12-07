@@ -1,5 +1,6 @@
 package com.labesnoite.pocketpersonaltrainer.config.retrofit2
 import com.labesnoite.pocketpersonaltrainer.entidade.Usuario
+import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -16,7 +17,10 @@ interface UserService {
     @GET("pocketPersonalTrainer/loginUser/{email,senha}")
     fun loginApp(@Path("email") email: String, @Path("senha") senha: String): Call<Usuario>
 
+    @GET("pocketpersonaltrainerdb/blob/master/usuario.json")
+    fun getUser(): Observable<Usuario>
+
     @POST("pocketPersonalTrainer/user")
-    fun save(@Body user: Usuario): Call<Usuario>
+    fun save(@Body user: Usuario?): Call<Usuario>
 
 }

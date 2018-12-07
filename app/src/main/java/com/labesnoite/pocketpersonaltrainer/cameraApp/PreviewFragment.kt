@@ -23,7 +23,7 @@ import java.util.*
 
 //import kotlin.collections.ArrayList
 
-class PreviewFragment : Fragment() {
+class PreviewFragment : Fragment(), View.OnClickListener, View.OnLongClickListener {
 
     private val MAX_PREVIEW_WIDTH = 1280
     private val MAX_PREVIEW_HEIGHT = 720
@@ -337,33 +337,46 @@ class PreviewFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        captureButton.setOnClickListener {
-            if (isCaptured) {
-                try {
-                    isCaptured = false
-                    previewSession()
-                } catch (e: CameraAccessException) {
-                }
-            } else {
-                isCaptured = true
-                closeCamera()
-            }
-        }
+        captureButton.setOnClickListener(this)
 
-        captureButton.setOnLongClickListener {
-            if (isRecording) {
-                isRecording = false
-                stopRecordSession()
-            } else {
-                isRecording = true
-                startRecordSession()
-            }
-            return@setOnLongClickListener isRecording
-        }
+        captureButton.setOnLongClickListener(this)
 
         thumbnailButton.setOnClickListener {
             Log.d(TAG, "thumbnail button selected")
         }
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.captureButton -> {
+                if (isCaptured) {
+                    try {
+                        isCaptured = false
+                        previewSession()
+                    } catch (e: CameraAccessException) {
+                    }
+                } else {
+                    isCaptured = true
+                    closeCamera()
+                }
+
+            }
+        }
+    }
+
+    override fun onLongClick(v: View?): Boolean {
+        when (v?.id) {
+            R.id.captureButton -> {
+                if (isRecording) {
+                    isRecording = false
+                    stopRecordSession()
+                } else {
+                    isRecording = true
+                    startRecordSession()
+                }
+            }
+        }
+        return isRecording
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

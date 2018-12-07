@@ -1,17 +1,14 @@
 package com.labesnoite.pocketpersonaltrainer
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import com.labesnoite.pocketpersonaltrainer.entidade.Usuario
-import com.labesnoite.pocketpersonaltrainer.menuPrincipalFragments.AgendarTreino
+import com.labesnoite.pocketpersonaltrainer.entidade.TreinoUsuario
 import com.labesnoite.pocketpersonaltrainer.menuPrincipalFragments.PageAdapter
 import kotlinx.android.synthetic.main.activity_principal.*
-import kotlinx.android.synthetic.main.fragment_menu_calendario.*
 
 class MenuPrincipalActivity : AppCompatActivity() {
 
-    private var user = Usuario()
+    private var listTreino: ArrayList<TreinoUsuario>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,27 +18,39 @@ class MenuPrincipalActivity : AppCompatActivity() {
 
         mainLayout.adapter = pageAdapter
         tabsMenu.setupWithViewPager(mainLayout)
-
-        btnAddTreino.setOnClickListener {
-            val fragment: Fragment = AgendarTreino()
-            val fM = supportFragmentManager
-            val fmt = fM.beginTransaction()
-            fmt.replace(R.id.AgendarTreino, fragment)
-            fmt.commit()
-        }
-
+        //var user:Usuario? = getUsuarioBancoById()
     }
 
-    private fun setPerfilUsuario() {
-        //user = intent.extras.get("Usuario") as Usuario
-        //PerfilUsuario().setUsuarioNoFragment(user)
-    }
+    /* private fun getUsuarioBancoById():Usuario? {
+         var user:Usuario? = Usuario()
+ /*        val params:Bundle = intent.getBundleExtra("Params")
+         if(params.isEmpty){
+             user = null
+         }else{
+             user = params.getSerializable("Usuario") as Usuario
+             val call = RetrofitInitializer().userService().userById(user.getId())
+             call.enqueue(object : Callback<Usuario> {
+                 override fun onResponse(call: Call<Usuario>?, response: Response<Usuario?>?) {
+                     response?.body()?.let {
+                         user = it
+                     }
+             }
 
-    private fun agendarTreino() {
+             override fun onFailure(call: Call<Usuario?>?, t: Throwable?) {
+                     Log.e("Falha no login", t?.message)
+                 }
+             })
+         }*/
+         return user
+     }*/
 
+
+    private fun agendarTreino(treinoAgendado: TreinoUsuario) {
+        //listTreino.add(treinoAgendado)
     }
 
     private fun listaTodosTreinosAgendados() {
-
+        //for()
+        //txtTreinosLista.text = listTreino
     }
 }

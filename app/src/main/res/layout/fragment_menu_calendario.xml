@@ -18,8 +18,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/treinosLista"
-        android:layout_width="393dp"
+        android:id="@+id/txtTreinosLista"
+        android:layout_width="376dp"
         android:layout_height="202dp"
         android:text="Meus Treinos"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -28,7 +28,7 @@
         android:layout_width="336dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:text="@string/btn_entrar"
         android:textColor="@android:color/black"
@@ -36,7 +36,7 @@
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.687"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edT_passWd" />
 
@@ -45,7 +45,7 @@
         android:layout_width="343dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="@string/txt_email"
@@ -53,6 +53,7 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -65,6 +66,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="@string/txt_passwd"
+        android:importantForAutofill="no"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
         android:singleLine="true"
@@ -72,7 +74,6 @@
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail"
-        android:importantForAutofill="no"
         tools:targetApi="o" />
 
     <TextView
@@ -98,7 +99,7 @@
         android:id="@+id/textView2"
         android:layout_width="99dp"
         android:layout_height="23dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="8dp"
         android:text="@string/TxtView_redfPwd"
@@ -134,10 +135,10 @@
         android:layout_height="66dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="105dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="105dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewCadastrar" />
 
@@ -145,9 +146,9 @@
         android:id="@+id/imageView2"
         android:layout_width="170dp"
         android:layout_height="159dp"
+        android:layout_marginTop="36dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_pocket_personal_round" />
